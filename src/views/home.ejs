@@ -5,6 +5,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
     <style>
+        .avatar {
+            width: 150;
+            height: 100px;
+            border-radius: 50%;
+        }
         table {
           font-family: arial, sans-serif;
           border-collapse: collapse;
@@ -39,7 +44,9 @@
     <th>Fullname</th>
     <th>Email</th>
     <th>City</th>
+    <th>Image</th>
     <th>Action</th>
+    
 </tr>
 <!-- Iterate over listUsers array -->
 <% listUsers.forEach(function(user)  { %>
@@ -47,6 +54,9 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.city %></td>
+        <td>
+            <img class="avatar" src="<%= user.image %>" alt="img">
+        </td>
         <td>
             <a href="/edit/<%= user.id %>">Edit</a>
             <form action="delete/<%= user.id %>" method="post">

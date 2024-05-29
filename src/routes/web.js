@@ -1,6 +1,6 @@
 const express = require('express');
-const {getHomepages, getAboutPages, getIndexPages, getSignUpPage, getEditPage, editUser} = require('../controllers/homeControllers');
-const {createUser, deleteUser} = require('../services/CRUDServices');
+const {getHomepages, getAboutPages, getIndexPages, getSignUpPage, getEditPage} = require('../controllers/homeControllers');
+const {createUser, deleteUser, editUser} = require('../services/CRUDServices');
 const router = express.Router();   
 
 // router.Method('/route', handler)

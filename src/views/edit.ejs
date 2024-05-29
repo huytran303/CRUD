@@ -13,15 +13,17 @@
     </div>
 <!-- users form -->
     <div class="form-add-user">
-        <form action="/edit-user/<%=user.id%>" method = "post">
+        <form action="/edit-user/<%=user.id%>" method = "post" enctype="multipart/form-data">
             <fieldset>
              <legend>Edit User</legend>
              <label for="name">Full name:</label>
-             <input type="text" id="name" name="name" value="<%=user.name%>"><br><br>
+                <input type="text" id="name" name="name" value="<%=user.name%>"><br><br>
              <label for="email">Email:</label>
-             <input type="email" id="email" name="email" value="<%=user.email%>"><br><br>
-             <label for="birthday">City</label>
-             <input type="text" id="city" name="city" value="<%=user.city%>"><br><br>
+                <input type="email" id="email" name="email" value="<%=user.email%>"><br><br>
+             <label for="city">City</label>
+                <input type="text" id="city" name="city" value="<%=user.city%>"><br><br>
+             <label for="image">Image:</label>
+                <input type="file" id="image" name="image" value="<%=user.image%>"><br><br>
              <input type="submit" value="Submit">
             </fieldset>
         </form>
