@@ -37,6 +37,11 @@ const updateUser = async (email, name, city, id, image) => {
 }
 
 const editUser = async (req, res) => {
+    let userID = req.params.id;
+    let [userResults, userFields] = await connection.query('SELECT image FROM Users WHERE id = ?', [userID  ]);
+    console.log(">>> check userResults: ", userResults);
+    let tempImage = userResults[0].image;
+    console.log(">>> check tempImage: ", tempImage);
     upload.single('image')(req, res, async (err) => {
         if (err) {
             return res.status(500).json({ error: err.message });
@@ -45,12 +50,12 @@ const editUser = async (req, res) => {
         let name = req.body.name;
         let city = req.body.city;
         let id = req.params.id;
-        let image;
+        
         if (req.file) {
             let tempPath = req.file.path;
             image = tempPath.replace('uploads\\', '');
         } else {
-            image = null; 
+            image = tempImage; 
         }
         console.log(">>> check image: ", image);
         console.log(">>> check email: ", email);
